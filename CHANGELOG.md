@@ -1,5 +1,5 @@
 v1.8.0
-- Removed templating and css/js framework out, this is now solely used for Site Generation
+- Removed css/js framework out of @caweb/html-webpack-plugin and into it's own individual package
 
 v1.7.13
 - Added card-none styles
