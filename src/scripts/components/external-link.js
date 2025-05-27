@@ -14,6 +14,10 @@ window.addEventListener('DOMContentLoaded', () => {
   );
   externalLink.forEach(element => {
     const linkElement = element;
+    /**
+     * Only add the external link icon under the following conditions:
+     * 1. The link target is set to blank, append the external link icon
+     */
     if (
       '_blank' === element.getAttribute('target')
     ) {

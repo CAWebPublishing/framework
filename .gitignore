@@ -13,9 +13,9 @@ audit
 # lets not save site data
 caweb.json
 
-# plugins can have built, src directories.
-!plugins\/**\/build
-!plugins\/**\/src
+# ignore @caweb/template directories these are used for testing
+content
+media
 
 # large/disallowed file types
 # a CDN should be used for these

@@ -1,5 +1,6 @@
 v1.8.0
 - Removed css/js framework out of @caweb/html-webpack-plugin and into it's own individual package
+- Removed divi references
 
 v1.7.13
 - Added card-none styles

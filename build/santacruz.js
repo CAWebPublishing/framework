@@ -6341,6 +6341,10 @@ window.addEventListener('DOMContentLoaded', () => {
   const externalLink = document.querySelectorAll(`main a${cssExceptions}, .footer-links a${cssExceptions}`);
   externalLink.forEach(element => {
     const linkElement = element;
+    /**
+     * Only add the external link icon under the following conditions:
+     * 1. The link target is set to blank, append the external link icon
+     */
     if ('_blank' === element.getAttribute('target')) {
       linkElement.innerHTML += ext; // += concatenates to external links
     }

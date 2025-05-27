@@ -1,13 +1,44 @@
 {
     "name": "@caweb/framework",
-    "version": "1.8.0-beta.1",
+    "version": "1.8.0",
     "description": "Official CAWebPublishing Framework frontend toolkit",
+    "author": "CAWebPublishing",
+    "homepage": "https://github.com/CAWebPublishing/framework#readme",
+    "license": "ISC",
     "type": "module",
+    "repository": {
+        "type": "git",
+        "url": "git+https://github.com/CAWebPublishing/framework.git"
+    },
+    "keywords": [
+        "caweb",
+        "cagov",
+        "webpack"
+    ],
+    "bugs": {
+        "url": "https://github.com/CAWebPublishing/framework/issues"
+    },
+    "publishConfig": {
+        "access": "public"
+    },
     "files": [
         "build",
         "src",
         "README.md"
     ],
+    "dependencies": {
+        "@caweb/webpack": "^1.4.2"
+    },
+    "devDependencies": {
+        "@caweb/icon-library": "^1.1.0",
+        "@inquirer/prompts": "^7.5.3",
+        "animate.css": "^4.1.1",
+        "bootstrap": "^5.3.6",
+        "bootstrap-forced-colors-css": "^1.0.7",
+        "chalk": "^5.4.1",
+        "cross-spawn": "^7.0.6",
+        "fast-xml-parser": "^5.2.3"
+    },
     "scripts": {
         "webpack": "webpack",
         "postbuild": "npm run create-entrypoint",
@@ -79,36 +110,5 @@
         "build:trinity:dev": "webpack build --config ./node_modules/@caweb/webpack/webpack.config.js ./lib/entry/trinity.js --merge --mode development",
         "serve:trinity": "set NODE_OPTIONS='--scheme false' && webpack serve --config ./node_modules/@caweb/webpack/webpack.config.js ./lib/entry/trinity.js ./lib/scripts/webpack.test.js --merge",
         "serve:trinity:quick": "set NODE_OPTIONS='--no-jshint --no-audit --no-a11y --scheme false' && webpack serve --config ./node_modules/@caweb/webpack/webpack.config.js ./lib/entry/trinity.js ./lib/scripts/webpack.test.js --merge"
-    },
-    "repository": {
-        "type": "git",
-        "url": "git+https://github.com/CAWebPublishing/framework.git"
-    },
-    "keywords": [
-        "caweb",
-        "cagov",
-        "webpack"
-    ],
-    "author": "CAWebPublishing",
-    "license": "ISC",
-    "bugs": {
-        "url": "https://github.com/CAWebPublishing/framework/issues"
-    },
-    "publishConfig": {
-        "access": "public"
-    },
-    "homepage": "https://github.com/CAWebPublishing/framework#readme",
-    "devDependencies": {
-        "@caweb/icon-library": "^1.1.0",
-        "@inquirer/prompts": "^7.5.0",
-        "animate.css": "^4.1.1",
-        "bootstrap": "^5.3.6",
-        "bootstrap-forced-colors-css": "^1.0.7",
-        "chalk": "^5.4.1",
-        "cross-spawn": "^7.0.6",
-        "fast-xml-parser": "^5.2.2"
-    },
-    "dependencies": {
-        "@caweb/webpack": "^1.4.0-beta.0"
     }
 }

@@ -3,28 +3,33 @@
 ----------------------------------------- */
 
 /* We assign the specificity to the defaults as 1-1-1 */
-#page-container ul {
+/*
+  we don't want to mess with the following components:
+  - .nav
+*/
+#page-container ul:not(.nav) {
   list-style-type: disc;
-}
 
-#page-container ul ul {
-  list-style-type: circle;
-}
+  ul {
+    list-style-type: circle;
 
-#page-container ul ul ul {
-  list-style-type: square;
+    ul {
+      list-style-type: square;
+    }  
+  }
 }
 
 #page-container ol {
   list-style-type: decimal;
-}
 
-#page-container ol ol{
-  list-style-type: lower-alpha;
-}
+  ol{
+    list-style-type: lower-alpha;
 
-#page-container ol ol ol{
-  list-style-type: lower-roman;
+    ol{
+      list-style-type: lower-roman;
+    }
+  }
+  
 }
 
 .list-overstated,
