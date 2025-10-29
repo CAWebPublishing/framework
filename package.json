@@ -1,6 +1,6 @@
 {
     "name": "@caweb/framework",
-    "version": "1.8.0",
+    "version": "1.8.1",
     "description": "Official CAWebPublishing Framework frontend toolkit",
     "author": "CAWebPublishing",
     "homepage": "https://github.com/CAWebPublishing/framework#readme",
@@ -23,21 +23,22 @@
     },
     "files": [
         "build",
+        "lib",
         "src",
         "README.md"
     ],
     "dependencies": {
-        "@caweb/webpack": "^1.4.2"
+        "@caweb/webpack": "^1.5.6"
     },
     "devDependencies": {
-        "@caweb/icon-library": "^1.1.0",
-        "@inquirer/prompts": "^7.5.3",
+        "@caweb/icon-library": "^1.1.2",
+        "@inquirer/prompts": "^7.9.0",
         "animate.css": "^4.1.1",
-        "bootstrap": "^5.3.6",
+        "bootstrap": "^5.3.8",
         "bootstrap-forced-colors-css": "^1.0.7",
-        "chalk": "^5.4.1",
+        "chalk": "^5.6.2",
         "cross-spawn": "^7.0.6",
-        "fast-xml-parser": "^5.2.3"
+        "fast-xml-parser": "^5.3.0"
     },
     "scripts": {
         "webpack": "webpack",

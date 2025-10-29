@@ -1,3 +1,6 @@
+v1.8.1
+- Updated npm packages
+
 v1.8.0
 - Removed css/js framework out of @caweb/html-webpack-plugin and into it's own individual package
 - Removed divi references
