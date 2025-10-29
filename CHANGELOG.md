@@ -1,3 +1,7 @@
+v1.8.2
+- Updated npm packages
+- Google Fonts no longer imported, fonts were saved to a scss file and imported. Importing from URL caused conflicts
+
 v1.8.1
 - Updated npm packages
 

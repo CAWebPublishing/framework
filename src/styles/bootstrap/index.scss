@@ -1,11 +1,11 @@
-/*!
- * Custom Bootstrap v5.3.3 (https://getbootstrap.com/)
- * Licensed under MIT (https://github.com/twbs/bootstrap/blob/master/LICENSE)
- * @see https://github.com/twbs/bootstrap/blob/main/site/content/docs/5.3/migration.md
- * @see https://github.com/twbs/bootstrap/blob/main/scss/bootstrap.scss
- */
+// /*!
+//  * Custom Bootstrap v5.3.3 (https://getbootstrap.com/)
+//  * Licensed under MIT (https://github.com/twbs/bootstrap/blob/master/LICENSE)
+//  * @see https://github.com/twbs/bootstrap/blob/main/site/content/docs/5.3/migration.md
+//  * @see https://github.com/twbs/bootstrap/blob/main/scss/bootstrap.scss
+//  */
 @import "bootstrap/scss/mixins/banner";
-@include bsBanner("");
+@include bsBanner("CAWebPublishing Framework");
 
 // Configuration
 // 1. Include functions first (so you can manipulate colors, SVGs, calc, etc)
