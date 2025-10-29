@@ -1,3 +1,7 @@
+v1.8.3
+- Updated create-entrypoint scripts
+- Fixed issue with Icon Font Library
+
 v1.8.2
 - Updated npm packages
 - Google Fonts no longer imported, fonts were saved to a scss file and imported. Importing from URL caused conflicts
