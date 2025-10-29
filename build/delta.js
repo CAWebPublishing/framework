@@ -6648,6 +6648,15 @@ __webpack_require__.r(__webpack_exports__);
 // This entry needs to be wrapped in an IIFE because it needs to be in strict mode.
 (() => {
 "use strict";
+var __webpack_exports__ = {};
+__webpack_require__.r(__webpack_exports__);
+// extracted by mini-css-extract-plugin
+
+})();
+
+// This entry needs to be wrapped in an IIFE because it needs to be in strict mode.
+(() => {
+"use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var bootstrap_dist_js_bootstrap_bundle_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__("./node_modules/bootstrap/dist/js/bootstrap.bundle.js");
 /* harmony import */ var _components_mobile_controls_js__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__("./src/scripts/components/mobile-controls.js");
