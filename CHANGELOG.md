@@ -1,3 +1,6 @@
+v1.8.4
+- Fixed import order of styles, animate.css was conflicting so it was moved to the top
+
 v1.8.3
 - Updated create-entrypoint scripts
 - Fixed issue with Icon Font Library

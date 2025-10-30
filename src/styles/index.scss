@@ -1,3 +1,11 @@
+// The order of imports is important, otherwise styles may not work as expected.
+
+// -------------------------------------------------
+// Animate
+// @link https://animate.style/
+// -------------------------------------------------
+@import 'animate.css';
+
 // -------------------------------------------------
 // Google Fonts
 // -------------------------------------------------
@@ -13,12 +21,6 @@
 // @link https://www.npmjs.com/package/bootstrap-forced-colors-css
 // -------------------------------------------------
 @import 'bootstrap-forced-colors-css/scss/bootstrap-forced-colors';
-
-// -------------------------------------------------
-// Animate
-// @link https://animate.style/
-// -------------------------------------------------
-@import 'animate.css';
 
 // -------------------------------------------------
 // Components
