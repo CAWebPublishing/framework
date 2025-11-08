@@ -1,3 +1,7 @@
+v1.8.5
+- Updated npm packages
+- Updated profile banner media image src location
+
 v1.8.4
 - Fixed import order of styles, animate.css was conflicting so it was moved to the top
 
