@@ -1,3 +1,6 @@
+v1.8.6
+- Updated location styles
+
 v1.8.5
 - Updated npm packages
 - Updated profile banner media image src location
