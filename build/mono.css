@@ -15847,10 +15847,7 @@ figure.executive-profile.vertical .body {
 }
 .location .contact a:not(.btn) {
   display: block;
-}
-.location .contact p:first-child, .location .summary p:first-child {
-  margin-bottom: 0;
-  font-weight: bold;
+  padding: 0 !important;
 }
 .location.mini .thumbnail [class*=ca-gov-icon-] {
   font-size: 3.5rem;
