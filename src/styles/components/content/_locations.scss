@@ -26,15 +26,9 @@
 
         a:not(.btn) {
             display: block;
+            padding: 0 !important;
         }
     }
-
-    // these styles apply to the first child of the contact and summary sections
-    & .contact p:first-child,
-    & .summary p:first-child{
-        margin-bottom: 0;
-        font-weight: bold;
-    }   
 
     // Commpon styles just for the mini layout
     &.mini{

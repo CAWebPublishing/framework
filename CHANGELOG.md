@@ -1,3 +1,6 @@
+v1.8.7
+- Updated some more location styles
+
 v1.8.6
 - Updated location styles
 
