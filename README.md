@@ -3,7 +3,9 @@ This is the Official CAWebPublishing Framework frontendend toolkit used by the C
 <i>This framework is inspired by [Bootstrap](https://getbootstrap.com/)</i>
 
 ## Installation
-<pre>npm install --save-dev @caweb/framework</pre>
+```
+npm install --save-dev @caweb/framework
+```
 
 
 ## How to use this repository
@@ -19,8 +21,8 @@ There are various different scripts that can be ran
 <code>npm run build:&lt;colorscheme&gt;:dev</code> - will build that specific colorscheme unminified only.  
 
 ### Serve
-<code>npm run serve:&lt;colorscheme&gt;</code> - will serve that specific colorscheme and also run a11y checks, css audits, jshints.  
-<code>npm run serve:&lt;colorscheme&gt;:quick</code> - will serve that specific colorscheme without running a11y checks, css audits, jshints.  
+<code>npm run serve:&lt;colorscheme&gt;</code> - will serve that specific colorscheme without running a11y checks, css audits, jshints.  
+<code>npm run serve:&lt;colorscheme&gt;:audit</code> - will serve that specific colorscheme and also run a11y checks, css audits, jshints.
 
 ### Update scripts
 <code>npm run update-scripts</code> - This will regenerate the build/serve commands.  

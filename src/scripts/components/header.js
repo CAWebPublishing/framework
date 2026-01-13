@@ -56,17 +56,9 @@ window.addEventListener('DOMContentLoaded', () => {
       // move the header up to the scroll height, minus any elements above the header
       header.style.top = `-${(scrollHeights - miscElementHeights)}px`;
 
-      // we add the header height + misc element heights to the page container as margin-top, minus the scroll heights since those get hidden
-      if( pageContainer ){
-        pageContainer.style.marginTop =  `${(header.clientHeight + miscElementHeights - scrollHeights)}px`;
-      }
     } else {
       // reset header to initial position
       header.style.top = `${miscElementHeights}px`; 
-
-      if( pageContainer ){
-        pageContainer.style.marginTop =  `${(header.clientHeight + miscElementHeights)}px`;
-      }
     }
 
     // for each element with an id we add the scroll-margin-top
