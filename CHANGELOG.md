@@ -1,3 +1,11 @@
+v1.9.0
+- Updated npm packages
+- Switched over to @caweb/cli updated build/serve scripts accordingly
+- header position changed from fixed to sticky
+- margin-top no longer applied to all divs, only scroll-margin-top
+- @caweb/icon-library was removed from entrypoints and moved to webpack.test.js, thus icons are no longer bundled with the framework
+- Changed the font-size to the alerts in the header section to 14px
+
 v1.8.7
 - Updated some more location styles
 

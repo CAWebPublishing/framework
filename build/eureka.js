@@ -1,8 +1,8 @@
 /******/ (() => { // webpackBootstrap
 /******/ 	var __webpack_modules__ = ({
 
-/***/ "./node_modules/bootstrap/dist/js/bootstrap.bundle.js":
-/***/ (function(module) {
+/***/ "./node_modules/bootstrap/dist/js/bootstrap.bundle.js"
+(module) {
 
 /*!
   * Bootstrap v5.3.8 (https://getbootstrap.com/)
@@ -6317,10 +6317,10 @@
 //# sourceMappingURL=bootstrap.bundle.js.map
 
 
-/***/ }),
+/***/ },
 
-/***/ "./src/scripts/components/external-link.js":
-/***/ ((__unused_webpack___webpack_module__, __webpack_exports__, __webpack_require__) => {
+/***/ "./src/scripts/components/external-link.js"
+(__unused_webpack___webpack_module__, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
@@ -6348,10 +6348,10 @@ window.addEventListener('DOMContentLoaded', () => {
   });
 });
 
-/***/ }),
+/***/ },
 
-/***/ "./src/scripts/components/header.js":
-/***/ ((__unused_webpack___webpack_module__, __webpack_exports__, __webpack_require__) => {
+/***/ "./src/scripts/components/header.js"
+(__unused_webpack___webpack_module__, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
@@ -6406,17 +6406,9 @@ window.addEventListener('DOMContentLoaded', () => {
 
       // move the header up to the scroll height, minus any elements above the header
       header.style.top = `-${scrollHeights - miscElementHeights}px`;
-
-      // we add the header height + misc element heights to the page container as margin-top, minus the scroll heights since those get hidden
-      if (pageContainer) {
-        pageContainer.style.marginTop = `${header.clientHeight + miscElementHeights - scrollHeights}px`;
-      }
     } else {
       // reset header to initial position
       header.style.top = `${miscElementHeights}px`;
-      if (pageContainer) {
-        pageContainer.style.marginTop = `${header.clientHeight + miscElementHeights}px`;
-      }
     }
 
     // for each element with an id we add the scroll-margin-top
@@ -6432,10 +6424,10 @@ window.addEventListener('DOMContentLoaded', () => {
   compactHeader();
 });
 
-/***/ }),
+/***/ },
 
-/***/ "./src/scripts/components/mobile-controls.js":
-/***/ ((__unused_webpack___webpack_module__, __webpack_exports__, __webpack_require__) => {
+/***/ "./src/scripts/components/mobile-controls.js"
+(__unused_webpack___webpack_module__, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
@@ -6538,10 +6530,10 @@ window.addEventListener('DOMContentLoaded', () => {
   mobileCheck();
 });
 
-/***/ }),
+/***/ },
 
-/***/ "./src/scripts/components/return-top.js":
-/***/ ((__unused_webpack___webpack_module__, __webpack_exports__, __webpack_require__) => {
+/***/ "./src/scripts/components/return-top.js"
+(__unused_webpack___webpack_module__, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
@@ -6594,7 +6586,7 @@ window.addEventListener('DOMContentLoaded', () => {
   });
 });
 
-/***/ })
+/***/ }
 
 /******/ 	});
 /************************************************************************/

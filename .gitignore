@@ -13,9 +13,13 @@ audit
 # lets not save site data
 caweb.json
 
+# disregard wp styles
+src/wp/
+
 # ignore @caweb/template directories these are used for testing
 content
 media
+semantics
 
 # large/disallowed file types
 # a CDN should be used for these
