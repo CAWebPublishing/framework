@@ -27,9 +27,9 @@
         "README.md"
     ],
     "devDependencies": {
-        "@caweb/icon-library": "^1.1.5",
-        "@caweb/template": "^1.0.12",
-        "@caweb/webpack": "^1.6.1",
+        "@caweb/icon-library": "^1.1.6",
+        "@caweb/template": "^1.0.13",
+        "@caweb/webpack": "^1.6.2",
         "@inquirer/prompts": "^8.2.0",
         "animate.css": "^4.1.1",
         "bootstrap": "^5.3.8",
