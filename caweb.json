@@ -1,0 +1,7 @@
+{
+    "_comment": "Use this file to pass data to the CAWeb template during build time.",
+    "site": {
+        "logo": "./node_modules/@caweb/template/media/logo.png",
+        "favicon": "./node_modules/@caweb/template/media/favicon.ico"
+    }
+}

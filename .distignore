@@ -20,3 +20,7 @@ lib
 *.sql
 *.tar.gz
 *.zip
+
+# no need to distribute site data
+caweb.json
+lib

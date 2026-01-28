@@ -3,7 +3,6 @@ window.addEventListener('DOMContentLoaded', () => {
   let location_hash = window.location.hash.replace(/(\|)/g, "\\$1");
 
   const header = document.querySelector('header');
-  const pageContainer = document.getElementById('page-container');
   const alerts = document.querySelector('.alerts');
   const utilityHeader = document.querySelector('.utility-header');
 
@@ -61,12 +60,6 @@ window.addEventListener('DOMContentLoaded', () => {
       header.style.top = `${miscElementHeights}px`; 
     }
 
-    // for each element with an id we add the scroll-margin-top
-    document.querySelectorAll('#page-container [id]').forEach((element) => {
-      if( element instanceof HTMLElement ){
-        element.style.scrollMarginTop = `${header.clientHeight + miscElementHeights - scrollHeights}px`;
-      }
-    });
   };
 
   // reset position on scroll

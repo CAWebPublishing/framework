@@ -1,3 +1,7 @@
+v1.9.1
+- scroll-margin-top no longer needed
+- Updated npm packages
+
 v1.9.0
 - Updated npm packages
 - Switched over to @caweb/cli updated build/serve scripts accordingly
