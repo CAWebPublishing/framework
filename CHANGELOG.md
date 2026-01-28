@@ -1,3 +1,6 @@
+v1.9.2
+- Updated npm packages
+
 v1.9.1
 - scroll-margin-top no longer needed
 - Updated npm packages
