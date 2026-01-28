@@ -10,15 +10,15 @@ node_modules
 private
 audit
 
-# lets not save site data
-caweb.json
-
 # disregard wp styles
 src/wp/
 
 # ignore @caweb/template directories these are used for testing
+components
 content
+forms
 media
+patterns
 semantics
 
 # large/disallowed file types
