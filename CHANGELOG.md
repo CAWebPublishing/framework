@@ -1,3 +1,6 @@
+v1.9.7
+- Added type to parameter
+
 v1.9.6
 - scroll-margin-top now takes into account for any alerts that may have been closed
 
