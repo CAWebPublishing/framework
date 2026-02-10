@@ -84,7 +84,7 @@ window.addEventListener('DOMContentLoaded', () => {
       // if the elements offsetTop is greater than twice the header size, 
       // we can assume the header is compacted
       // so we need to subtract the compacted elements height from the scroll margin.
-      if( element.offsetTop > scrollMarginHeight * 2 ){
+      if( element.offsetTop > scrollMarginHeight + (scrollMarginHeight / 2) ){
         scrollMarginHeight -= compactedElementsHeight;
       }
 
