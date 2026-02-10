@@ -11,7 +11,8 @@ window.addEventListener('DOMContentLoaded', () => {
     document.querySelector('.utility-header'),
   ].filter(Boolean);
 
-  let compactedElementsHeight = compactedElements.reduce((total, element) => {
+  const getCompactedElementsHeight = () => {
+    return compactedElements.reduce((total, element) => {
       if( element instanceof HTMLElement  ){
         return total + element.clientHeight;
       }
@@ -19,6 +20,9 @@ window.addEventListener('DOMContentLoaded', () => {
       return total;
       
     }, 0);
+  }
+    
+  let compactedElementsHeight = getCompactedElementsHeight();
 
   // lets collect the height of any fixed elements above the header.
   let topOffset = 0;
@@ -52,7 +56,6 @@ window.addEventListener('DOMContentLoaded', () => {
   
 
   const compactHeader = () => {
-    
     // downscroll code passed the header height
     if (document.body.scrollTop >= header.offsetHeight ||
       document.documentElement.scrollTop >= header.offsetHeight
@@ -76,21 +79,32 @@ window.addEventListener('DOMContentLoaded', () => {
 
   };
   
-  // for each element with an id we add the scroll-margin-top
-  document.querySelectorAll('#page-container [id]').forEach((element) => {
-    if( element instanceof HTMLElement ){ 
-      let scrollMarginHeight = header.clientHeight + topOffset;
-
-      // if the elements offsetTop is greater than twice the header size, 
-      // we can assume the header is compacted
-      // so we need to subtract the compacted elements height from the scroll margin.
-      if( element.offsetTop > scrollMarginHeight + (scrollMarginHeight / 2) ){
-        scrollMarginHeight -= compactedElementsHeight;
-      }
-
-      element.style.scrollMarginTop = `${scrollMarginHeight}px`;
-    }
+  // we need to update the compacted elements height if an alert is closed, so we listen for the alert close event and update the compacted elements height.
+  document.querySelectorAll('header .alerts [data-bs-dismiss="alert"]').forEach((closeButton) => {
+    closeButton.addEventListener('click', () => {
+      compactedElementsHeight = getCompactedElementsHeight();
+      document.querySelectorAll('#page-container [id]').forEach(updateScrollMarginTop);
+    });
   });
+
+  // for each element with an id we add the scroll-margin-top
+  const updateScrollMarginTop = (element) => {
+    if( element instanceof HTMLElement ){ 
+          let scrollMarginHeight = header.clientHeight + topOffset;
+  
+          // if the elements offsetTop is greater than twice the header size, 
+          // we can assume the header is compacted
+          // so we need to subtract the compacted elements height from the scroll margin.
+          if( element.offsetTop > scrollMarginHeight + (scrollMarginHeight / 2) ){
+            scrollMarginHeight -= compactedElementsHeight;
+          }
+  
+          element.style.scrollMarginTop = `${scrollMarginHeight}px`;
+        }
+  }
+
+  // add scroll margin top to all elements with an id, so that when we scroll to them, they are not hidden behind the header.
+  document.querySelectorAll('#page-container [id]').forEach(updateScrollMarginTop);
 
   // reset position on scroll
   window.addEventListener(

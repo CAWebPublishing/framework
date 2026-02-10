@@ -1,3 +1,6 @@
+v1.9.6
+- scroll-margin-top now takes into account for any alerts that may have been closed
+
 v1.9.5
 - Lowered the threshold for the scroll-margin-top value
 
