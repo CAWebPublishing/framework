@@ -88,7 +88,7 @@ window.addEventListener('DOMContentLoaded', () => {
   });
 
   // for each element with an id we add the scroll-margin-top
-  const updateScrollMarginTop = (element) => {
+  const updateScrollMarginTop = (/** @type Element */ element) => {
     if( element instanceof HTMLElement ){ 
           let scrollMarginHeight = header.clientHeight + topOffset;
   
