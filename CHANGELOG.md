@@ -1,3 +1,6 @@
+v1.9.5
+- Lowered the threshold for the scroll-margin-top value
+
 v1.9.4
 - Updated hash scroll solution
 - Updated scroll-margin-top solution for proper anchoring
