@@ -4,6 +4,7 @@
 ----------------------------------------- */
 header.global-header{
   position: sticky;
+  top: 0;
   background-color: var(--bs-white, $white);
   z-index: 15;
   transition: all 0.3s ease;
@@ -78,4 +79,3 @@ header.global-header{
       text-align: right;
   }
 }
-
