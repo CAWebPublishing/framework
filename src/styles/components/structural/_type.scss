@@ -45,7 +45,8 @@ a {
   }
 }
 
-// add padding to all links except buttons and Divi buttons
+// add padding to all links except buttons and nav links, which have their own padding.
 #page-container a:not(.btn, .nav-link) {
   padding: .5rem 0;
 }
+

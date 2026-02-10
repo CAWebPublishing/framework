@@ -1,3 +1,8 @@
+v1.9.4
+- Updated hash scroll solution
+- Updated scroll-margin-top solution for proper anchoring
+- Updated npm packages
+
 v1.9.3
 - Updated npm packages
 
