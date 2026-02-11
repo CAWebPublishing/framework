@@ -1,3 +1,6 @@
+v1.9.8
+- Added grays to theme-color mapping
+
 v1.9.7
 - Added type to parameter
 
