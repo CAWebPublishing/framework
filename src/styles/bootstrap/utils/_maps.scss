@@ -4,9 +4,20 @@
 $theme-colors: map-merge-multiple(
   $theme-colors,
   $custom-colors,
-  $social-media-colors
+  $social-media-colors,
 );
 // scss-docs-end theme-colors-map
+
+// scss-docs-start grays-map
+@each $c, $val in $grays {
+    $theme-colors: map-merge(
+        $theme-colors,
+        (
+            gray-#{$c}: $val,
+        )
+    );
+}
+// scss-docs-end grays-map
 
 // scss-docs-start theme-colors-rgb
 $theme-colors-rgb: map-loop($theme-colors, to-rgb, "$value");
@@ -48,3 +59,4 @@ $utilities-bg-colors: map-loop($utilities-bg, rgba-css-var, "$key", "bg");
     );
 }
 // scss-docs-end colors-map
+
