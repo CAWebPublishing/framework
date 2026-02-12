@@ -11472,14 +11472,8 @@ textarea.form-control-lg {
 .fs-6 {
   font-size: 1.125rem !important;
 }
-.fs-sm {
+.fs-7 {
   font-size: 0.984375rem !important;
-}
-.fs-md {
-  font-size: 1.125rem !important;
-}
-.fs-lg {
-  font-size: calc(1.265625rem + 0.1875vw) !important;
 }
 .fst-italic {
   font-style: italic !important;
@@ -15174,9 +15168,6 @@ textarea.form-control-lg {
   .fs-5 {
     font-size: 1.40625rem !important;
   }
-  .fs-lg {
-    font-size: 1.40625rem !important;
-  }
 }
 @media print {
   .d-print-inline {
@@ -15678,7 +15669,7 @@ footer.global-footer .nav-item a:hover, footer.global-footer .nav-item a:focus {
   outline: solid 2px #0D81CE !important;
 }
 footer.global-footer .nav-item a[class*=ca-gov-icon-] {
-  font-size: calc(1.35rem + 0.1vw);
+  font-size: calc(1.40625rem + 0.1vw);
   padding: 0;
 }
 footer.global-footer .nav-item a .ca-gov-logo-svg + .ca-gov-icon-external-link {

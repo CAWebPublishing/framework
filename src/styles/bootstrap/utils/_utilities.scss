@@ -60,9 +60,7 @@ $font-size: map-get($utilities, 'font-size');
 $font-sizes: map-merge(
   map-get($font-size, 'values' ),
   (
-    sm: $font-size-sm,
-    md: $font-size-base,
-    lg: $font-size-lg,
+    7: $font-size-sm,
   )
 );
 
