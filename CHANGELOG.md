@@ -1,3 +1,6 @@
+v1.9.10
+- Updated npm packages
+
 v1.9.9
 - Removed fs-md as it was duplicate
 - Added fs-7 to font-sizes
