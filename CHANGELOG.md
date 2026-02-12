@@ -1,3 +1,7 @@
+v1.9.9
+- Removed fs-md as it was duplicate
+- Added fs-7 to font-sizes
+
 v1.9.8
 - Added grays to theme-color mapping
 
