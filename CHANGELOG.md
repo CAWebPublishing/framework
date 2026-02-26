@@ -1,3 +1,8 @@
+v1.9.11
+- Added cross-env to scripts for cross platform compatibility
+- Updated entry-points path references
+- Updated npm packages
+
 v1.9.10
 - Updated npm packages
 
