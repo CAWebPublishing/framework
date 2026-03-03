@@ -1,6 +1,6 @@
 {
     "name": "@caweb/framework",
-    "version": "1.9.11",
+    "version": "1.9.12",
     "description": "Official CAWebPublishing Framework frontend toolkit",
     "author": "CAWebPublishing",
     "homepage": "https://github.com/CAWebPublishing/framework#readme",
@@ -28,8 +28,8 @@
     ],
     "devDependencies": {
         "@caweb/icon-library": "^1.1.7",
-        "@caweb/template": "^1.0.19",
-        "@caweb/webpack": "^2.0.0",
+        "@caweb/template": "^1.1.2",
+        "@caweb/webpack": "^2.0.5",
         "@inquirer/prompts": "^8.3.0",
         "animate.css": "^4.1.1",
         "bootstrap": "^5.3.8",

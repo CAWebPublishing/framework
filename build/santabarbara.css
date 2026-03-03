@@ -16905,3 +16905,14 @@ figure.executive-profile.vertical .body {
 [data-bs-theme=dark] figure.executive-profile .body *:not(a) {
   color: var(--bs-black, #000);
 }
+#wpadminbar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 9999;
+  background-color: black;
+  height: 32px;
+}
+
+/*# sourceMappingURL=santabarbara.css.map*/

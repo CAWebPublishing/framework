@@ -1,3 +1,7 @@
+v1.9.12
+- Removed the padding-top from the page-container
+- Updated npm packages
+
 v1.9.11
 - Added cross-env to scripts for cross platform compatibility
 - Updated entry-points path references

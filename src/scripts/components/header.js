@@ -72,7 +72,7 @@ window.addEventListener('DOMContentLoaded', () => {
 
       // if we have a page container, we need to set its top padding to the offset
       if( pageContainer && pageContainer instanceof HTMLElement  ){
-        pageContainer.style.paddingTop = `${topOffset}px`;
+        // pageContainer.style.paddingTop = `${topOffset}px`;
       }
     
     }
