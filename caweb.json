@@ -2,6 +2,103 @@
     "_comment": "Use this file to pass data to the CAWeb template during build time.",
     "site": {
         "logo": "./node_modules/@caweb/template/media/logo.png",
-        "favicon": "./node_modules/@caweb/template/media/favicon.ico"
+        "favicon": "./node_modules/@caweb/template/media/favicon.ico",
+        "header": {
+            "utility": {
+                "links": []
+            },
+            "menu": "dropdown",
+            "nav": [
+                    {
+                        "label": "CAWebPublishing",
+                        "url": "https://caweb.cdt.ca.gov/",
+                        "sub":[]
+                    },
+                    {
+                        "label": "CDT",
+                        "url": "https://cdt.ca.gov/",
+                        "sub": [
+                            {
+                                "label": "Accessibility",
+                                "url": "https://caweb.cdt.ca.gov/accessibility-2/",
+                                "description": "Accessibility",
+                                "media": {
+                                    "align": "left",
+                                    "img": {
+                                        "src": "/media/components.jpg",
+                                        "alt": "Accessibility Imgage"
+                                    }
+                                }
+                            },
+                             {
+                                "label": "Accessibility",
+                                "url": "https://caweb.cdt.ca.gov/accessibility-2/",
+                                "description": "Accessibility",
+                                "media": {
+                                    "align": "right",
+                                    "img": {
+                                        "src": "/media/components.jpg",
+                                        "alt": "Accessibility Imgage"
+                                    }
+                                }
+                            },
+                             {
+                                "label": "Accessibility",
+                                "url": "https://caweb.cdt.ca.gov/accessibility-2/",
+                                "description": "Accessibility",
+                                "media": {
+                                    "img": {
+                                        "src": "/media/components.jpg",
+                                        "alt": "Accessibility Image"
+                                    }
+                                }
+                            },
+                            {
+                                "label": "Accessibility",
+                                "url": "https://caweb.cdt.ca.gov/accessibility-2/",
+                                "description": "Accessibility",
+                                "media": {
+                                    "icon": "accessibility"
+                                }
+                            },
+                             {
+                                "label": "Accessibility",
+                                "url": "https://caweb.cdt.ca.gov/accessibility-2/",
+                                "description": "Accessibility",
+                                "media": {
+                                    "align": "left",
+                                    "icon": "accessibility"
+                                }
+                            },
+                             {
+                                "label": "Accessibility",
+                                "url": "https://caweb.cdt.ca.gov/accessibility-2/",
+                                "description": "Accessibility",
+                                "media": {
+                                    "align": "right",
+                                    "icon": "accessibility"
+                                }
+                            }
+                        ]
+                    }
+            ]
+        },
+        "footer":{
+            "nav": [
+               {
+                    "label": "Accessibility",
+                    "url": "https://caweb.cdt.ca.gov/accessibility-2/"
+                }
+            ]
+        },
+        "alerts": [
+            {
+                "icon": "info",
+                "header": "Dev Notice:",
+                "msg": "To see more CAWebPublishing projects, visit our Github Organization.",
+                "url": "https://github.com/CAWebPublishing/",
+                "text": "Visit Github"
+            }
+        ]
     }
 }
