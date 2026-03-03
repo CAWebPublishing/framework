@@ -1,3 +1,6 @@
+v1.9.13
+- Removed wp test styles
+
 v1.9.12
 - Removed the padding-top from the page-container
 - Updated npm packages
