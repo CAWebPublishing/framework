@@ -1,3 +1,6 @@
+v1.9.15
+- Removed topOffset from scroll-margin-top
+
 v1.9.14
 - Changed event listeners from DOMContentLoaded to load
 - Added ResizeObserver to compactedElements to account for any height changes that may occur

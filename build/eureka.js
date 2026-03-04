@@ -6427,19 +6427,7 @@ window.addEventListener('load', () => {
 
   // for each element with an id we add the scroll-margin-top
   const updateScrollMarginTop = (/** @type Element */element) => {
-    // lets collect the height of any fixed elements above the header.
-    let current = header?.previousElementSibling;
-    let topOffset = 0;
-    while (current) {
-      // if current element has a fixed/absolute position, add its height to the topOffset.
-      if (current instanceof HTMLElement && ['fixed', 'absolute'].includes(window.getComputedStyle(current).position)) {
-        topOffset += current.clientHeight;
-      }
-      current = current.previousElementSibling;
-    }
     if (element instanceof HTMLElement) {
-      let scrollMarginHeight = header.clientHeight + topOffset;
-
       // if the elements offsetTop is greater than twice the header size, 
       // we can assume the header is compacted
       // so we need to subtract the compacted elements height from the scroll margin.
