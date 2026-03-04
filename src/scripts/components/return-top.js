@@ -1,5 +1,5 @@
-//@ts-check
-window.addEventListener('DOMContentLoaded', () => {
+
+window.addEventListener('load', () => {
   document.querySelectorAll('.return-top').forEach(returnTop =>
     returnTop.addEventListener('click', () => {
       document.body.scrollTop = 0; // For Safari

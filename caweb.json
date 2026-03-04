@@ -5,7 +5,12 @@
         "favicon": "./node_modules/@caweb/template/media/favicon.ico",
         "header": {
             "utility": {
-                "links": []
+                "links": [
+                    {
+                        "label": "Contact Us",
+                        "url": "https://caweb.cdt.ca.gov/contact-us/"
+                    }
+                ]
             },
             "menu": "dropdown",
             "nav": [
