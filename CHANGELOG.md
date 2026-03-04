@@ -1,3 +1,8 @@
+v1.9.14
+- Changed event listeners from DOMContentLoaded to load
+- Added ResizeObserver to compactedElements to account for any height changes that may occur
+- Top offset only used for scroll-margin-top calculations now
+
 v1.9.13
 - Removed wp test styles
 

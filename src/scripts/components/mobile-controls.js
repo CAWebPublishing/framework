@@ -1,5 +1,5 @@
 
-window.addEventListener('DOMContentLoaded', () => {
+window.addEventListener('load', () => {
   const isDesktopWidth = () => window.innerWidth > 992; //Maximum px for mobile width
 
   const mainHeader = document.querySelector('header');

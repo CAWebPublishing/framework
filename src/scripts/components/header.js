@@ -1,14 +1,17 @@
-//@ts-check
-window.addEventListener('DOMContentLoaded', () => {
+
+window.addEventListener('load', () => {
   let location_hash = window.location.hash.replace(/(\|)/g, "\\$1");
 
   const header = document.querySelector('header') ;
   const pageContainer = document.querySelector('#page-container');
 
+  const alerts = header?.querySelector('.alerts');
+  const utilityHeader = header?.querySelector('.utility-header');
+
   // array of elements that are compacted
   const compactedElements = [
-    document.querySelector('.alerts'),
-    document.querySelector('.utility-header'),
+    alerts,
+    utilityHeader,
   ].filter(Boolean);
 
   const getCompactedElementsHeight = () => {
@@ -21,21 +24,24 @@ window.addEventListener('DOMContentLoaded', () => {
       
     }, 0);
   }
-    
+
   let compactedElementsHeight = getCompactedElementsHeight();
 
-  // lets collect the height of any fixed elements above the header.
-  let topOffset = 0;
-  let current = header?.previousElementSibling;
-  
-  while( current ){
-      // if current element has a fixed position, add its height to the topOffset.
-      if( current instanceof HTMLElement && window.getComputedStyle(current).position === 'fixed' ){
-        topOffset += current.clientHeight ;
-      }
-      current = current.previousElementSibling;
+  // resize observer function to watch if compacted elements change height, so we can update the compacted elements height when they change.
+  const clientHeightObserver = (entries) => {
+    for(const entry of entries) {
+      // update the compacted elements height when the compacted entry changes., which can happen when google translate loads and changes the height of the utility header or when items wrap
+      compactedElementsHeight = getCompactedElementsHeight();
     }
-  
+  }
+
+  // observe compacted elements for height changes, so we can update the compacted elements height when they change.
+  compactedElements.forEach((element) => {
+    if( element instanceof HTMLElement  ){
+      const observer = new ResizeObserver(clientHeightObserver);
+      observer.observe(element);
+    }
+  });
 
   // scroll to target
   if( location_hash ){
@@ -53,7 +59,6 @@ window.addEventListener('DOMContentLoaded', () => {
   if (!header) {
     return;
   }
-  
 
   const compactHeader = () => {
     // downscroll code passed the header height
@@ -61,20 +66,15 @@ window.addEventListener('DOMContentLoaded', () => {
       document.documentElement.scrollTop >= header.offsetHeight
     ) {
       // move the header up to hide the compacted elements height, minus the top offset.
-      header.style.top = `-${(compactedElementsHeight - topOffset)}px`;
+      header.style.top = `-${(compactedElementsHeight)}px`;
 
     } else {
       // reset header to initial position
       // we need to set the header's top to the offset.
       if( header ){
-        header.style.top = `${topOffset}px`;
+        header.style.top = 0;
       }
 
-      // if we have a page container, we need to set its top padding to the offset
-      if( pageContainer && pageContainer instanceof HTMLElement  ){
-        // pageContainer.style.paddingTop = `${topOffset}px`;
-      }
-    
     }
 
   };
@@ -89,6 +89,19 @@ window.addEventListener('DOMContentLoaded', () => {
 
   // for each element with an id we add the scroll-margin-top
   const updateScrollMarginTop = (/** @type Element */ element) => {
+    
+    // lets collect the height of any fixed elements above the header.
+    let current = header?.previousElementSibling;
+    let topOffset = 0;
+    
+    while( current ){
+      // if current element has a fixed/absolute position, add its height to the topOffset.
+      if( current instanceof HTMLElement && ['fixed', 'absolute'].includes(window.getComputedStyle(current).position) ){
+        topOffset += current.clientHeight ;
+      }
+      current = current.previousElementSibling;
+    }
+      
     if( element instanceof HTMLElement ){ 
           let scrollMarginHeight = header.clientHeight + topOffset;
   

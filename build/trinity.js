@@ -6324,10 +6324,8 @@
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-//@ts-check
-
 /* EXTERNAL LINK ICON */
-window.addEventListener('DOMContentLoaded', () => {
+window.addEventListener('load', () => {
   const ext = '<span class="ca-gov-icon-external-link" aria-hidden="true"></span><span class="sr-only">opens in a new window</span>';
 
   // Add any exceptions to not render here
@@ -6355,14 +6353,15 @@ window.addEventListener('DOMContentLoaded', () => {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-//@ts-check
-window.addEventListener('DOMContentLoaded', () => {
+window.addEventListener('load', () => {
   let location_hash = window.location.hash.replace(/(\|)/g, "\\$1");
   const header = document.querySelector('header');
   const pageContainer = document.querySelector('#page-container');
+  const alerts = header?.querySelector('.alerts');
+  const utilityHeader = header?.querySelector('.utility-header');
 
   // array of elements that are compacted
-  const compactedElements = [document.querySelector('.alerts'), document.querySelector('.utility-header')].filter(Boolean);
+  const compactedElements = [alerts, utilityHeader].filter(Boolean);
   const getCompactedElementsHeight = () => {
     return compactedElements.reduce((total, element) => {
       if (element instanceof HTMLElement) {
@@ -6373,16 +6372,21 @@ window.addEventListener('DOMContentLoaded', () => {
   };
   let compactedElementsHeight = getCompactedElementsHeight();
 
-  // lets collect the height of any fixed elements above the header.
-  let topOffset = 0;
-  let current = header?.previousElementSibling;
-  while (current) {
-    // if current element has a fixed position, add its height to the topOffset.
-    if (current instanceof HTMLElement && window.getComputedStyle(current).position === 'fixed') {
-      topOffset += current.clientHeight;
+  // resize observer function to watch if compacted elements change height, so we can update the compacted elements height when they change.
+  const clientHeightObserver = entries => {
+    for (const entry of entries) {
+      // update the compacted elements height when the compacted entry changes., which can happen when google translate loads and changes the height of the utility header or when items wrap
+      compactedElementsHeight = getCompactedElementsHeight();
     }
-    current = current.previousElementSibling;
-  }
+  };
+
+  // observe compacted elements for height changes, so we can update the compacted elements height when they change.
+  compactedElements.forEach(element => {
+    if (element instanceof HTMLElement) {
+      const observer = new ResizeObserver(clientHeightObserver);
+      observer.observe(element);
+    }
+  });
 
   // scroll to target
   if (location_hash) {
@@ -6403,17 +6407,12 @@ window.addEventListener('DOMContentLoaded', () => {
     // downscroll code passed the header height
     if (document.body.scrollTop >= header.offsetHeight || document.documentElement.scrollTop >= header.offsetHeight) {
       // move the header up to hide the compacted elements height, minus the top offset.
-      header.style.top = `-${compactedElementsHeight - topOffset}px`;
+      header.style.top = `-${compactedElementsHeight}px`;
     } else {
       // reset header to initial position
       // we need to set the header's top to the offset.
       if (header) {
-        header.style.top = `${topOffset}px`;
-      }
-
-      // if we have a page container, we need to set its top padding to the offset
-      if (pageContainer && pageContainer instanceof HTMLElement) {
-        // pageContainer.style.paddingTop = `${topOffset}px`;
+        header.style.top = 0;
       }
     }
   };
@@ -6428,6 +6427,16 @@ window.addEventListener('DOMContentLoaded', () => {
 
   // for each element with an id we add the scroll-margin-top
   const updateScrollMarginTop = (/** @type Element */element) => {
+    // lets collect the height of any fixed elements above the header.
+    let current = header?.previousElementSibling;
+    let topOffset = 0;
+    while (current) {
+      // if current element has a fixed/absolute position, add its height to the topOffset.
+      if (current instanceof HTMLElement && ['fixed', 'absolute'].includes(window.getComputedStyle(current).position)) {
+        topOffset += current.clientHeight;
+      }
+      current = current.previousElementSibling;
+    }
     if (element instanceof HTMLElement) {
       let scrollMarginHeight = header.clientHeight + topOffset;
 
@@ -6456,7 +6465,7 @@ window.addEventListener('DOMContentLoaded', () => {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-window.addEventListener('DOMContentLoaded', () => {
+window.addEventListener('load', () => {
   const isDesktopWidth = () => window.innerWidth > 992; //Maximum px for mobile width
 
   const mainHeader = document.querySelector('header');
@@ -6562,8 +6571,7 @@ window.addEventListener('DOMContentLoaded', () => {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-//@ts-check
-window.addEventListener('DOMContentLoaded', () => {
+window.addEventListener('load', () => {
   document.querySelectorAll('.return-top').forEach(returnTop => returnTop.addEventListener('click', () => {
     document.body.scrollTop = 0; // For Safari
     document.documentElement.scrollTop = 0; // For Chrome, Firefox, IE and Opera
