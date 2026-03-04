@@ -1,3 +1,6 @@
+v1.9.16
+- Fixed issue with undefined variable
+
 v1.9.15
 - Removed topOffset from scroll-margin-top
 
