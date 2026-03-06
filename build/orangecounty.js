@@ -6356,7 +6356,6 @@ __webpack_require__.r(__webpack_exports__);
 window.addEventListener('load', () => {
   let location_hash = window.location.hash.replace(/(\|)/g, "\\$1");
   const header = document.querySelector('header');
-  const pageContainer = document.querySelector('#page-container');
   const alerts = header?.querySelector('.alerts');
   const utilityHeader = header?.querySelector('.utility-header');
 
@@ -6365,7 +6364,10 @@ window.addEventListener('load', () => {
   const getCompactedElementsHeight = () => {
     return compactedElements.reduce((total, element) => {
       if (element instanceof HTMLElement) {
-        return total + element.clientHeight;
+        // only if the element is visible, we include its height in the total compacted elements height, otherwise we ignore it, since it won't affect the header's position when compacted.
+        if (window.getComputedStyle(element).display !== 'none') {
+          return total + element.clientHeight;
+        }
       }
       return total;
     }, 0);
@@ -6403,6 +6405,8 @@ window.addEventListener('load', () => {
   if (!header) {
     return;
   }
+
+  // compact header on scroll
   const compactHeader = () => {
     // downscroll code passed the header height
     if (document.body.scrollTop >= header.offsetHeight || document.documentElement.scrollTop >= header.offsetHeight) {
@@ -6417,33 +6421,43 @@ window.addEventListener('load', () => {
     }
   };
 
-  // we need to update the compacted elements height if an alert is closed, so we listen for the alert close event and update the compacted elements height.
-  document.querySelectorAll('header .alerts [data-bs-dismiss="alert"]').forEach(closeButton => {
-    closeButton.addEventListener('click', () => {
-      compactedElementsHeight = getCompactedElementsHeight();
-      document.querySelectorAll('#page-container [id]').forEach(updateScrollMarginTop);
-    });
-  });
-
   // for each element with an id we add the scroll-margin-top
-  const updateScrollMarginTop = (/** @type Element */element) => {
-    let scrollMarginHeight = header?.clientHeight;
-    if (element instanceof HTMLElement) {
-      // if the elements offsetTop is greater than twice the header size, 
-      // we can assume the header is compacted
-      // so we need to subtract the compacted elements height from the scroll margin.
-      if (element.offsetTop > scrollMarginHeight + scrollMarginHeight / 2) {
-        scrollMarginHeight -= compactedElementsHeight;
+  const updateScrollMarginTop = () => {
+    // for each element with an id we add the scroll-margin-top
+    document.querySelectorAll('#page-container [id]').forEach(element => {
+      if (element instanceof HTMLElement) {
+        let scrollMarginHeight = header?.clientHeight;
+
+        // if the elements offsetTop is greater than twice the header size, 
+        // we can assume the header is compacted
+        // so we need to subtract the compacted elements height from the scroll margin.
+        if (element.offsetTop > scrollMarginHeight + scrollMarginHeight / 2) {
+          scrollMarginHeight -= compactedElementsHeight;
+        }
+        element.style.scrollMarginTop = `${scrollMarginHeight}px`;
       }
-      element.style.scrollMarginTop = `${scrollMarginHeight}px`;
-    }
+    });
   };
 
-  // add scroll margin top to all elements with an id, so that when we scroll to them, they are not hidden behind the header.
-  document.querySelectorAll('#page-container [id]').forEach(updateScrollMarginTop);
+  // if there are alerts add a mutation observer to watch for changes in the alerts container, 
+  if (alerts) {
+    // so we can update the compacted elements height when an alert is closed or a new alert is added.
+    new MutationObserver((mutationList, observer) => {
+      compactedElementsHeight = getCompactedElementsHeight();
+      updateScrollMarginTop();
+    }).observe(alerts, {
+      attributes: true,
+      childList: true
+    });
+  }
 
-  // reset position on scroll
+  // add scroll event listener to compact the header on scroll
   window.addEventListener('scroll', compactHeader);
+
+  // add scroll margin top to all elements with an id, so that when we scroll to them, they are not hidden behind the header.
+  updateScrollMarginTop();
+
+  // compact header on page load in case the page is loaded with a scroll position past the header height.
   compactHeader();
 });
 
@@ -6459,6 +6473,7 @@ window.addEventListener('load', () => {
 
   const mainHeader = document.querySelector('header');
   const mobileOverlay = mainHeader?.querySelector('.mobile-controlled.overlay');
+  const alerts = mainHeader?.querySelector('.alerts');
   const searchContainer = mainHeader?.querySelector('.search-container');
   const mainNav = mainHeader?.querySelector('.navigation');
   const mainNavUl = mainNav?.querySelector('.nav');
@@ -6486,6 +6501,11 @@ window.addEventListener('load', () => {
       if (searchContainer) {
         mainHeader.querySelector('.header-organization-banner')?.after(searchContainer);
       }
+
+      // alerts are always shown in desktop mode
+      if (alerts) {
+        alerts.classList.remove('d-none');
+      }
     } else {
       // if mobile menu is open
       if ('true' === toggleMenuCloseButton.getAttribute('aria-expanded')) {
@@ -6511,6 +6531,11 @@ window.addEventListener('load', () => {
           // navigation ul should render as a column
           mainNavUl?.classList.add('flex-column');
         }
+      }
+
+      // alerts are hidden in mobile mode
+      if (alerts) {
+        alerts.classList.add('d-none');
       }
     }
   };

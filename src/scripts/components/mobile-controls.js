@@ -4,6 +4,7 @@ window.addEventListener('load', () => {
 
   const mainHeader = document.querySelector('header');
   const mobileOverlay = mainHeader?.querySelector('.mobile-controlled.overlay');
+  const alerts = mainHeader?.querySelector('.alerts');
   
   const searchContainer = mainHeader?.querySelector('.search-container');
 
@@ -35,6 +36,11 @@ window.addEventListener('load', () => {
         if( searchContainer ){
           mainHeader.querySelector('.header-organization-banner')?.after(searchContainer);
         }
+
+        // alerts are always shown in desktop mode
+        if( alerts ){
+          alerts.classList.remove('d-none');
+        }
       }else{
         // if mobile menu is open
         if( 'true' === toggleMenuCloseButton.getAttribute('aria-expanded') ){
@@ -63,6 +69,10 @@ window.addEventListener('load', () => {
 
         }
 
+        // alerts are hidden in mobile mode
+        if( alerts ){
+          alerts.classList.add('d-none');
+        }
       }
     
   };
