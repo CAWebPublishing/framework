@@ -6372,23 +6372,76 @@ window.addEventListener('load', () => {
       return total;
     }, 0);
   };
-  let compactedElementsHeight = getCompactedElementsHeight();
 
-  // resize observer function to watch if compacted elements change height, so we can update the compacted elements height when they change.
+  // get the total height of all elements above the header with a fixed position.
+  const getTopOffset = () => {
+    let current = header;
+    let offset = 0;
+    while (current) {
+      // if current element has a fixed position, add its height to the topOffset.
+      if (current instanceof HTMLElement && window.getComputedStyle(current).position === 'fixed') {
+        offset += current.clientHeight;
+      }
+      current = current.previousElementSibling;
+    }
+    return offset;
+  };
+  let compactedElementsHeight = getCompactedElementsHeight();
+  let topOffset = getTopOffset();
+
+  // resize observer function to watch if compacted elements were resized, 
+  // so we can update variables when they change.
+  let observedElements = [];
   const clientHeightObserver = entries => {
-    for (const entry of entries) {
-      // update the compacted elements height when the compacted entry changes., which can happen when google translate loads and changes the height of the utility header or when items wrap
+    let hasChanges = false;
+
+    // The callback receives an array of entries, one for each element that resized
+    for (let entry of entries) {
+      // we check if the entry was already saved once
+      if (entry.target.dataset.observer) {
+        let previousEntryIndex = observedElements.findIndex(observedEntry => observedEntry.target.dataset.observer === entry.target.dataset.observer);
+        let previousEntry = observedElements[previousEntryIndex];
+        let previousHeight = previousEntry instanceof ResizeObserverEntry ? previousEntry.contentBoxSize[0].blockSize : previousEntry.target.style.height;
+        let currentHeight = entry instanceof ResizeObserverEntry ? entry.contentBoxSize[0].blockSize : entry.target.style.height;
+
+        // if the entry's height has changed, we set hasChanges to true, so we can update the compacted elements height and top offset.
+        if (previousHeight !== currentHeight) {
+          observedElements[previousEntryIndex] = entry;
+          hasChanges = true;
+        }
+      } else {
+        // if not, we save the entry in a data attribute, so we can identify it in future callbacks and avoid unnecessary calculations when an entry changes.
+        entry.target.dataset.observer = crypto.randomUUID();
+
+        // save the entry
+        observedElements.push(entry);
+      }
+    }
+
+    // if changes detected, we perform updates
+    if (hasChanges) {
+      topOffset = getTopOffset();
       compactedElementsHeight = getCompactedElementsHeight();
+      updateScrollMarginTop();
+      compactHeader();
     }
   };
 
   // observe compacted elements for height changes, so we can update the compacted elements height when they change.
   compactedElements.forEach(element => {
     if (element instanceof HTMLElement) {
-      const observer = new ResizeObserver(clientHeightObserver);
-      observer.observe(element);
+      // we add a data-observer attribute to the element, so we can identify it in the callback and avoid unnecessary calculations when an entry changes.
+      new ResizeObserver(clientHeightObserver).observe(element);
     }
   });
+  let current = header;
+  while (current) {
+    // if current element has a fixed position add a resize observer
+    if (current instanceof HTMLElement && window.getComputedStyle(current).position === 'fixed') {
+      new ResizeObserver(clientHeightObserver).observe(current);
+    }
+    current = current.previousElementSibling;
+  }
 
   // scroll to target
   if (location_hash) {
@@ -6411,12 +6464,12 @@ window.addEventListener('load', () => {
     // downscroll code passed the header height
     if (document.body.scrollTop >= header.offsetHeight || document.documentElement.scrollTop >= header.offsetHeight) {
       // move the header up to hide the compacted elements height, minus the top offset.
-      header.style.top = `-${compactedElementsHeight}px`;
+      header.style.top = `-${compactedElementsHeight - topOffset}px`;
     } else {
       // reset header to initial position
       // we need to set the header's top to the offset.
       if (header) {
-        header.style.top = 0;
+        header.style.top = `${topOffset}px`;
       }
     }
   };
@@ -6434,18 +6487,16 @@ window.addEventListener('load', () => {
         if (element.offsetTop > scrollMarginHeight + scrollMarginHeight / 2) {
           scrollMarginHeight -= compactedElementsHeight;
         }
-        element.style.scrollMarginTop = `${scrollMarginHeight}px`;
+        element.style.scrollMarginTop = `${scrollMarginHeight + topOffset}px`;
       }
     });
   };
 
-  // if there are alerts add a mutation observer to watch for changes in the alerts container, 
+  // if there are alerts add a mutation observer to watch for changes in the alerts
   if (alerts) {
-    // so we can update the compacted elements height when an alert is closed or a new alert is added.
-    new MutationObserver((mutationList, observer) => {
-      compactedElementsHeight = getCompactedElementsHeight();
-      updateScrollMarginTop();
-    }).observe(alerts, {
+    // so we can update the compacted elements height when an alert is closed or 
+    // when entering mobile ( class .d-none is added/removed).
+    new MutationObserver(clientHeightObserver).observe(alerts, {
       attributes: true,
       childList: true
     });

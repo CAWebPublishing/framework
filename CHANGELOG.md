@@ -1,3 +1,6 @@
+v1.19.18 
+- Further refined MutationObserver/ResizeObserver recalculates when size changes occur above the header as well now
+
 v1.9.17
 - Alerts hidden in mobile via js instead of css, this allows for the MutationObserver to pick up when we go into mobile or when an alerts is closed and recalculates the compacted header size and scroll-margin-top when resizing from desktop to tablet/mobile view
 
