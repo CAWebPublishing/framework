@@ -71,5 +71,59 @@ header.global-header .navigation {
                 }
             }
         }
+
+        .megadropdown {
+            .dropdown-menu.show {
+                width: 100% !important;
+                overflow: visible;
+                
+                .submenu {
+                    display: flex;
+                    align-items: flex-end;
+
+                    .dropdown-item {
+
+                        &.with-media-left > span,
+                        &.with-media-left > img {
+                            margin-right: 10px;
+                            float: left;
+                        }
+
+                        img {
+                            width: 75px;
+                            height: 75px;
+                        }
+
+                    }
+
+
+                }
+
+                @media (min-width: 992px) {
+                    & {
+                        max-width: 960px;
+                    }
+                }
+                @media (min-width: 1200px) {
+                    & {
+                        max-width: 1140px;
+                    }
+                }
+                @media (min-width: 1400px) {
+                    & {
+                        max-width: 1320px;
+                    }
+                }
+                
+            }
+        }
     }
 }
+
+
+// header .nav.megadropdown .dropdown-menu.show {
+// 	max-width: 1320px;
+// 	width: 100% !important;
+// 	overflow: visible;
+
+// }

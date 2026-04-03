@@ -1,0 +1,43 @@
+<div id="wpadminbar"></div>
+<header role="banner" id="header" class="global-header">
+    <div id="skip-to-content">
+      <a href="#main-content">Skip to Main Content</a>
+    </div>
+
+    <!-- Site Alerts -->
+    {{#if alerts }}
+      {{#each alerts }}
+        {{> alert 
+            header=this.header
+            msg=this.msg
+            icon=this.icon
+            url=this.url
+            text=this.text
+        }}
+      {{/each}}
+    {{/if}}
+
+    {{! Utility Header }}
+    {{> utilityHeader }}
+
+    {{! Branding }}
+    {{> branding }}
+    
+    {{! Mobile Controls }}
+    {{> mobileControls }}
+
+    {{! Navigation }}
+    {{#if header.nav }}
+      {{#ifCond (ifCond header.menu '===' undefined) '||' (ifCond header.menu '===' 'single' ) }}
+          {{> navSingle }}
+      {{/ifCond}}
+      
+      {{#ifCond (ifCond header.menu '!==' undefined) '&&' (ifCond header.menu '===' 'dropdown' ) }}
+          {{> navDropdown }}
+      {{/ifCond}}
+
+      {{#ifCond (ifCond header.menu '!==' undefined) '&&' (ifCond header.menu '===' 'megadropdown' ) }}
+          {{> navMegaDropdown }}
+      {{/ifCond}}
+    {{/if}}
+</header>
