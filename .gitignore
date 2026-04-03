@@ -14,12 +14,12 @@ audit
 src/wp/
 
 # ignore @caweb/template directories these are used for testing
-components
-content
-forms
-media
-patterns
-semantics
+./components
+./content
+./forms
+./media
+./patterns
+./semantics
 
 # large/disallowed file types
 # a CDN should be used for these

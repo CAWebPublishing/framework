@@ -12,7 +12,7 @@
                     }
                 ]
             },
-            "menu": "dropdown",
+            "menu": "megadropdown",
             "nav": [
                     {
                         "label": "CAWebPublishing",
@@ -30,46 +30,39 @@
                                 "media": {
                                     "align": "left",
                                     "img": {
-                                        "src": "/media/components.jpg",
-                                        "alt": "Accessibility Imgage"
-                                    }
-                                }
-                            },
-                             {
-                                "label": "Accessibility",
-                                "url": "https://caweb.cdt.ca.gov/accessibility-2/",
-                                "description": "Accessibility",
-                                "media": {
-                                    "align": "right",
-                                    "img": {
-                                        "src": "/media/components.jpg",
-                                        "alt": "Accessibility Imgage"
-                                    }
-                                }
-                            },
-                             {
-                                "label": "Accessibility",
-                                "url": "https://caweb.cdt.ca.gov/accessibility-2/",
-                                "description": "Accessibility",
-                                "media": {
-                                    "img": {
-                                        "src": "/media/components.jpg",
+                                        "src": "/media/go-safely-logo.png",
                                         "alt": "Accessibility Image"
                                     }
                                 }
                             },
-                            {
+                             {
                                 "label": "Accessibility",
                                 "url": "https://caweb.cdt.ca.gov/accessibility-2/",
                                 "description": "Accessibility",
                                 "media": {
-                                    "icon": "accessibility"
+                                    "align": "top",
+                                    "img": {
+                                        "src": "/media/go-safely-logo.png",
+                                        "alt": "Accessibility Image"
+                                    }
                                 }
                             },
                              {
                                 "label": "Accessibility",
                                 "url": "https://caweb.cdt.ca.gov/accessibility-2/",
                                 "description": "Accessibility",
+                                "media": {
+                                    "img": {
+                                        "src": "/media/dolphin_marine_mammals_water-1-300x200.jpg",
+                                        "alt": "Accessibility Image"
+                                    }
+                                }
+                            },
+                             {
+                                "label": "Accessibility",
+                                "url": "https://caweb.cdt.ca.gov/accessibility-2/",
+                                "description": "Accessibility",
+                                "new_row": true,
                                 "media": {
                                     "align": "left",
                                     "icon": "accessibility"
@@ -80,7 +73,7 @@
                                 "url": "https://caweb.cdt.ca.gov/accessibility-2/",
                                 "description": "Accessibility",
                                 "media": {
-                                    "align": "right",
+                                    "align": "left",
                                     "icon": "accessibility"
                                 }
                             }

@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>{{ title }}</title>
+    {{> head }}
+  </head>
+  
+  <body>
+
+      {{> header }}
+
+      <div id="page-container" class="page-container">
+          <div id="main-content" class="main-content" tabindex="-1">
+            <main class="main-primary">
+
+              {{#if partial }}
+                {{{ partial }}}
+              {{else}}
+                {{> index }}
+              {{/if}}
+
+            </main>
+          </div>
+      </div>
+      {{> footer }}
+      {{#isScheme scheme }}
+      <script src="/node_modules/@caweb/framework/build/{{ scheme }}.js"></script>
+      {{/isScheme}}
+      {{#if assets }}
+      {{#each assets }}
+      {{#if (endsWith this ".js") }}
+      <script src="{{ this }}"></script>
+      {{/if}}
+      {{/each}}
+      {{/if}}
+      <script src="https://translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
+      <script>
+        function googleTranslateElementInit() {
+          new google.translate.TranslateElement({pageLanguage: "en", gaTrack: true, autoDisplay: false,  
+          layout: google.translate.TranslateElement.InlineLayout.VERTICAL},"google_translate_element");
+        }
+      </script>
+  </body>
+</html>
