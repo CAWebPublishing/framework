@@ -119,6 +119,24 @@ header.global-header {
                             color: $white !important;
                         }
                     }
+
+                    .megadropdown {
+                        .submenu {
+                            flex-direction: column;
+
+                            .dropdown-item {
+
+                                & > img, 
+                                & > span {
+                                    display: none;
+                                }
+
+                                & div span {
+                                    font-size: var(--bs-nav-link-font-size, 1rem) !important;
+                                }
+                            }
+                        }
+                    }
                 }
             }
         }
