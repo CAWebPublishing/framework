@@ -6636,13 +6636,9 @@ window.addEventListener('load', () => {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-// import bootstrap from 'bootstrap/dist/js/bootstrap.bundle.js';
-// import { Dropdown } from 'bootstrap';
-
 window.addEventListener('load', () => {
   document.querySelectorAll('header .nav.megadropdown .dropdown').forEach((element, i) => {
     element.addEventListener('shown.bs.dropdown', async event => {
-      let dropdownMenu = event.currentTarget.querySelector('.dropdown-menu');
       let dropdown = bootstrap.Dropdown.getInstance(event.srcElement);
       if (dropdown && dropdown._popper) {
         await dropdown._popper.setOptions({
@@ -6665,15 +6661,6 @@ window.addEventListener('load', () => {
           }]
         });
       }
-      // if( popoverInstance && popoverInstance._menu ){
-      // 	let style = window.getComputedStyle(popoverInstance._menu);
-      // 	let transform = style.transform || style.getPropertyValue("transform");
-
-      // 	console.log( transform );
-      // }
-      // console.log( dropdownMenu );
-
-      // dropdownMenu.style.transform = 'translateX(14vw)';
     });
   });
 });

@@ -1,10 +1,14 @@
-v1.19.19
+v1.9.20
+- Update npm packages
+- Updated megadropdown mobile view
+
+v1.9.19
 - Updated npm packages
 - bootstrap/dist/js/bootstrap.bundle.js added to window.bootstrap global variable
 - Added script for navigation
 - Update megadropdown navigation styles
 
-v1.19.18 
+v1.9.18 
 - Further refined MutationObserver/ResizeObserver recalculates when size changes occur above the header as well now
 
 v1.9.17

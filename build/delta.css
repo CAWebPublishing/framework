@@ -15932,6 +15932,15 @@ header.global-header .mobile-controlled.overlay {
   header.global-header .mobile-controlled .navigation .container .nav-item .link-description {
     color: #fff !important;
   }
+  header.global-header .mobile-controlled .navigation .container .megadropdown .submenu {
+    flex-direction: column;
+  }
+  header.global-header .mobile-controlled .navigation .container .megadropdown .submenu .dropdown-item > img, header.global-header .mobile-controlled .navigation .container .megadropdown .submenu .dropdown-item > span {
+    display: none;
+  }
+  header.global-header .mobile-controlled .navigation .container .megadropdown .submenu .dropdown-item div span {
+    font-size: var(--bs-nav-link-font-size, 1rem) !important;
+  }
 }
 @media (max-width: 992px) {
   footer.global-footer a {
