@@ -6410,8 +6410,16 @@ window.addEventListener('load', () => {
           hasChanges = true;
         }
       } else {
+        const uuidV4Fallback = () => {
+          return 'xxxxxxxx-xxxx-4xxx-yxxx-xxxxxxxxxxxx'.replace(/[xy]/g, function (c) {
+            const r = Math.random() * 16 | 0;
+            const v = c === 'x' ? r : r & 0x3 | 0x8;
+            return v.toString(16);
+          });
+        };
+
         // if not, we save the entry in a data attribute, so we can identify it in future callbacks and avoid unnecessary calculations when an entry changes.
-        entry.target.dataset.observer = crypto.randomUUID();
+        entry.target.dataset.observer = uuidV4Fallback();
 
         // save the entry
         observedElements.push(entry);
