@@ -1,3 +1,8 @@
+v1.9.21
+- Update npm packages
+- Added node>=22.22.2 requirement to match @inquirer/prompts reqs
+- crypto.randoUUID is not allowed in http context, so instead we use Math.random
+
 v1.9.20
 - Update npm packages
 - Updated megadropdown mobile view
