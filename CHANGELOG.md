@@ -1,3 +1,7 @@
+v1.9.22
+- Update npm packages
+- Added additional styles to the location components icon
+
 v1.9.21
 - Update npm packages
 - Added node>=22.22.2 requirement to match @inquirer/prompts reqs

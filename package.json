@@ -1,6 +1,6 @@
 {
     "name": "@caweb/framework",
-    "version": "1.9.21",
+    "version": "1.9.22",
     "description": "Official CAWebPublishing Framework frontend toolkit",
     "author": "CAWebPublishing",
     "homepage": "https://github.com/CAWebPublishing/framework#readme",
@@ -28,14 +28,14 @@
         "README.md"
     ],
     "devDependencies": {
-        "@caweb/icon-library": "^1.1.7",
+        "@caweb/icon-library": "^1.2.0",
         "@caweb/template": "^1.1.3",
-        "@caweb/webpack": "^2.0.8",
-        "@inquirer/prompts": "^8.5.0",
+        "@caweb/webpack": "^2.0.17",
+        "@inquirer/prompts": "^8.7.3",
         "animate.css": "^4.1.1",
         "bootstrap": "^5.3.8",
         "bootstrap-forced-colors-css": "^1.0.7",
-        "chalk": "^5.6.2",
+        "chalk": "^6.0.1",
         "cross-env": "^10.1.0"
     },
     "scripts": {
@@ -97,5 +97,9 @@
         "build:trinity:prod": "webpack build --config ./node_modules/@caweb/webpack/webpack.config.js ./lib/entry/trinity.js --merge --mode production",
         "build:trinity:dev": "webpack build --config ./node_modules/@caweb/webpack/webpack.config.js ./lib/entry/trinity.js --merge --mode development",
         "serve:trinity": "cross-env CAWEB_NODE_OPTIONS='--scheme' webpack serve --config ./node_modules/@caweb/webpack/webpack.config.js ./lib/entry/trinity.js ./node_modules/@caweb/webpack/tests/webpack.tests.js --merge"
+    },
+    "allowScripts": {
+        "core-js@3.50.0": true,
+        "@parcel/watcher@2.6.0": true
     }
 }

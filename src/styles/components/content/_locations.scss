@@ -4,7 +4,9 @@
     // Commpon styles just for the contact layout
     &.contact {
         .thumbnail [class*="ca-gov-icon-"]{
-            font-size: 3.5rem;
+            display: inline;
+            font-size: 3.5rem !important;
+            line-height: 1.5;
             margin-right: $spacer;
             color: var(--bs-gray-300, $gray-300);
         }
@@ -34,7 +36,9 @@
     &.mini{
         .thumbnail {
             [class*="ca-gov-icon-"]{
-                font-size: 3.5rem;
+                display: inline;
+                font-size: 3.5rem !important;
+                line-height: 1.5;
                 margin-right: $spacer;
 
                 background-color: var(--bs-black, $black);
