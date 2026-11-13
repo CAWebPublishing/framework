@@ -7,6 +7,9 @@ window.addEventListener('load', () => {
   const alerts = header?.querySelector('.alerts');
   const utilityHeader = header?.querySelector('.utility-header');
 
+  // Specific to Divi
+  const pageBar = document.querySelector('.et-vb-page-bar');
+
   // array of elements that are compacted
   const compactedElements = [
     alerts,
@@ -39,6 +42,12 @@ window.addEventListener('load', () => {
       }
       current = current.previousElementSibling;
     }
+
+    // if the page bar exists and has a fixed position, add its height to the top offset.
+    if( pageBar instanceof HTMLElement && window.getComputedStyle(pageBar).position === 'fixed' ){
+      offset += pageBar.clientHeight;
+    }
+    
     return offset;
   }
 

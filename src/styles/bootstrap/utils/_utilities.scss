@@ -6,8 +6,8 @@
   4. Add dotted, solid, dashed, wavy to text-decoration- utility
   5. Add sm, md, lg to font-size- utility
   6. Add default, pointer, grab, crosshair to cursor- utility classes
-  7. Add height 0 and width 0 to utility classes
-  7. Add min-vh 0 and min-vw 0 to utility classes
+  7. Add height 0,33,66 and width 0,33,66 to utility classes
+  8. Add min-vh 0,33,66 and min-vw 0,33,66 to utility classes
 */
 $utilities: () !default;
 
@@ -29,6 +29,8 @@ $height-values: map-merge(
   map-get($height, 'values' ),
   (
     0: 0,
+    33: 33,
+    66: 66
   )
 );
 
@@ -36,6 +38,8 @@ $min-height-values: map-merge(
   map-get($min-height, 'values' ),
   (
     0: 0,
+    33: 33,
+    66: 66
   )
 );
 
@@ -46,6 +50,8 @@ $width-values: map-merge(
   map-get($width, 'values' ),
   (
     0: 0,
+    33: 33,
+    66: 66
   )
 );
 
@@ -53,6 +59,8 @@ $min-width-values: map-merge(
   map-get($min-width, 'values' ),
   (
     0: 0,
+    33: 33,
+    66: 66
   )
 );
 
