@@ -1,3 +1,9 @@
+v1.9.23
+- Updated npm packages
+- Added height 0,33,66 and width 0,33,66 to utility classes
+- Added min-vh 0,33,66 and min-vw 0,33,66 to utility classes
+- Header script now accounts for Divi's page-bar
+
 v1.9.22
 - Update npm packages
 - Added additional styles to the location components icon
